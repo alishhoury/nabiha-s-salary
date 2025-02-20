@@ -1,6 +1,6 @@
-def calculaions():
-    
-    if total < 100 :
+import pprint
+def calculaions(salary,savings,rent,electricity):
+        print(f"month:{choosen_month}")
         savings = salary*(savings/100)
         rent = salary*(rent/100)
         electricity = salary*(electricity/100)
@@ -30,5 +30,8 @@ while month != "exit":
                 continue
             else:
                 break
-        varibles = [salary,savings,rent,electricity] ; d[month] = varibles
-print(d)
+        d[month] = {"salary":salary,"savings":savings,"rent":rent,"electricity":electricity}
+pprint.pprint(d)
+choosen_month = str(input("Please choose a month:"))
+print(d[choosen_month])
+calculaions(d[choosen_month]["salary"],d[choosen_month]["savings"],d[choosen_month]["rent"],d[choosen_month]["electricity"])
