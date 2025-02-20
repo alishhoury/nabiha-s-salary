@@ -15,17 +15,20 @@ def calculaions():
         save = int(input("The additional saving:"))
         print(f"Additional saving divided by total savings {save/savings}")
 
-month = None ; salary = 0 ; savings = 0 ; rent = 0 ; electricity = 0 ; varibles = [salary,savings,rent,electricity]
-total = savings + rent + electricity
-d = {}
+month = None ; salary = 0 ; savings = 0 ; rent = 0 ; electricity = 0 ; d = {}
 while month != "exit":
     month = str(input("Please enter the name of the month (type exit to quit):"))
-    if month != "exit" :  
+    if month != "exit" : 
         salary = int(input("Please enter your salary for this month:"))
-        savings = int(input("Please enter savings percentage:"))
-        rent = int(input("Please input Rent percentage:"))
-        electricity = int(input("Please input electricity percentage:"))
-        if total > 100:
-            print("The combined percentage exceeds 100%. Please enter the values again.")
-            d[month] = varibles
+        while True:
+            savings = int(input("Please enter savings percentage:"))
+            rent = int(input("Please input Rent percentage:"))
+            electricity = int(input("Please input electricity percentage:"))
+            total = savings + rent + electricity
+            if total > 100:
+                print("The combined percentage exceeds 100%. Please enter the values again.")
+                continue
+            else:
+                break
+        varibles = [salary,savings,rent,electricity] ; d[month] = varibles
 print(d)
